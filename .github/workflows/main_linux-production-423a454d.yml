@@ -62,7 +62,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'linux-production-423a454d'
+          app-name: 'linux-production-23f0140f'
           slot-name: 'Production'
           package: .
           
