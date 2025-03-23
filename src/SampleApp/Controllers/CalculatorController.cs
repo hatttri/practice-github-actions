@@ -11,6 +11,6 @@ public class CalculatorController : ControllerBase
     [HttpGet("Sum")]
     public int GetSum(int number1, int number2)
     {
-        return number1 + number2 + 1;
+        return number1 + number2;
     }
 }
