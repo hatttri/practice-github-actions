@@ -7,6 +7,25 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0'
+
+      - name: Unit Test
+        run: dotnet test ./test/SampleApp.Tests.Unit/SampleApp.Tests.Unit.csproj --configuration Release
+
+      - name: Integration Test
+        run: dotnet test ./test/SampleApp.Tests.Integration/SampleApp.Tests.Integration.csproj --configuration Release
+
   build:
     runs-on: ubuntu-latest
     permissions:
