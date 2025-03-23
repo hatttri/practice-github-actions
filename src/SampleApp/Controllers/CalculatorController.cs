@@ -8,7 +8,7 @@ public class CalculatorController : ControllerBase
 {
     public CalculatorController() { }
 
-    [HttpGet]
+    [HttpGet("Sum")]
     public int GetSum(int number1, int number2)
     {
         return number1 + number2;
