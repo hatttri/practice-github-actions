@@ -21,10 +21,10 @@ jobs:
           dotnet-version: '8.0'
 
       - name: Unit Test
-        run: dotnet test .\test\SampleApp.Tests.Unit\SampleApp.Tests.Unit.csproj --configuration Release
+        run: dotnet test ".\test\SampleApp.Tests.Unit\SampleApp.Tests.Unit.csproj" --configuration Release
 
       - name: Integration Test
-        run: dotnet test .\test\SampleApp.Tests.Integration\SampleApp.Tests.Integration.csproj --configuration Release
+        run: dotnet test ".\test\SampleApp.Tests.Integration\SampleApp.Tests.Integration.csproj" --configuration Release
 
   build:
     runs-on: windows-latest
@@ -41,10 +41,10 @@ jobs:
           dotnet-version: '8.0'
 
       - name: Build with dotnet
-        run: dotnet build .\src\SampleApp\SampleApp.csproj --configuration Release
+        run: dotnet build ".\src\SampleApp\SampleApp.csproj" --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish .\src\SampleApp\SampleApp.csproj -c Release -o ${{env.DOTNET_ROOT}}\myapp
+        run: dotnet publish ".\src\SampleApp\SampleApp.csproj" -c Release -o "${{env.DOTNET_ROOT}}\myapp"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
